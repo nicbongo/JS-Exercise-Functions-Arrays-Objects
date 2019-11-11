@@ -42,9 +42,9 @@ function addNumbers(num1, num2) {
 function makePersonObject(id, name, email) {
   /* code here */
     const person = {
-      id: 1,
-      name: "Luke",
-      email: "luke@luke.com"
+      id: id,
+      name: name,
+      email: email,
     }
     return person
 }
@@ -62,14 +62,12 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
+
+function getName(makePersonObject) {
   /* code here */
-  
+  return `Hello, my name is ${makePersonObject.name}`
+};
 
-
-
-
-}
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -84,13 +82,19 @@ function getName(/* code here */) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
+function makeSmartPerson(name) {
   /* code here */
+  const smartPerson = {
+    name: name,
+    sum: function (num1, num2) {
+      return num1 + num2
+    },
+    speak: function () {
+      return `Hello, my name is ${name}`
+    }
+  }
+  return smartPerson
 }
-
-
-
-
 
 /*
 // ⭐️ Example Test Data ⭐️
@@ -148,6 +152,11 @@ function get3rdCar(inventory) {
 */
 function getCarInfoByIndex(inventory, index) {
   /* code here */
+  const carInfo = inventory.find((item, index) => {
+    return index === 0 // we use 2 because index is zero-based
+  })
+  return  `This is a ${carInfo.car_make} ${carInfo.car_model}`
+  // (Array, number for index)
 }
 
 /**
