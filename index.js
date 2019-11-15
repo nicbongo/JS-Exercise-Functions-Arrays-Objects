@@ -266,7 +266,7 @@ function getGermanCars(inventory) {
   let newArray = [];
   
   for (let i = 0; i < inventory.length; i++) {
-    if (inventory[i].car_make === "Audi") { 
+    if (inventory[i].car_make === "Audi" ) { 
     newArray.push(inventory[i]);
     } 
     
@@ -316,9 +316,20 @@ const argTimesTwo = (num) => num * 2 // code here!
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
-  /* code here */
+function carMaker(odometer) {
+  let carObj = {
+    odometer: odometer,
+    drive: function(distance){
+        carObj.odometer += distance
+        return carObj.odometer
+      }  
+  }
+  return carObj
 }
+  
+
+
+
 
 /// ////// END OF CHALLENGE /////////
 /// ////// END OF CHALLENGE /////////
